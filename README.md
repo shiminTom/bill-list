@@ -1,2 +1,1 @@
-##  npm install antd-mobile --legacy-peer-deps
-antd-mobile 目前不支持 react 19，所以需要加上 --legacy-peer-deps 参数
+antd-mobile 暂时不支持 react19,试过补丁包暂时没有用，先将 react 版本回退到 18.2.0
