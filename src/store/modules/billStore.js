@@ -23,7 +23,7 @@ const { setBillList } = billStore.actions;
 const getBillList = () => {
     return async (dispatch) => {
         // 异步请求
-        const res = await axios.get("http://localhost:3001/ka");
+        const res = await axios.get("http://localhost:4000/ka");
         // 调用同步方法
         dispatch(setBillList(res.data));
     }

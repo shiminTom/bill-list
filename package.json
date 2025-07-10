@@ -12,6 +12,7 @@
     "axios": "^1.10.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
@@ -21,11 +22,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "craco start & npm run server",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "server": "json-server ./server/data.json --port 3001"
+    "server": "json-server ./server/data.json --port 4000"
   },
   "eslintConfig": {
     "extends": [
