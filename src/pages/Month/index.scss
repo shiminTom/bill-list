@@ -48,13 +48,13 @@
                     margin-left: 9px;
                     border-top: 2px solid #121826;
                     border-left: 2px solid #121826;
-                    transform: rotate(45deg);
+                    transform: rotate(225deg);
                     transform-origin: center;
                     transition: all .3s;
                     
                 }
-                .arrow.expand{
-                    transform: traanslate(0, 2px) rotate(45deg);
+                .expand{
+                    transform: translate(0, 2px) rotate(45deg);
                 }
             }
         }
@@ -62,6 +62,10 @@
     .twoLineOverview{
         display: flex;
         justify-content: space-between;
+        .item{
+            display: flex;
+            flex-direction: column;
+        }
         .money{
             height: 24px;
             line-height: 24px;
