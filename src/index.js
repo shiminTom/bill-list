@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import router from './router';
+import { Provider } from 'react-redux';
+import store from './store'; // 导入 Redux store
 
 // 导入定制主题样式
 import './theme.css';
@@ -13,6 +15,8 @@ root.render(
   // <React.StrictMode>
     // <App />
   // </React.StrictMode>
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );
 
