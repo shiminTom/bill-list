@@ -4,7 +4,7 @@ import './index.scss'
 
 export default function DayBill({ date, billList}) {
     // 控制展开收起
-    const [expand, setExpand] = useState(true);
+    const [expandVisible, setExpandVisible] = useState(false);
     // 计算每天的支出、收入和结余
     const dayResult = useMemo(() => {
             const pay = billList.filter(item => item.type === 'pay').reduce((total, item) => total + item.money, 0);
@@ -18,11 +18,11 @@ export default function DayBill({ date, billList}) {
     return (
         <div className="dayBill">
             <div className="bill_header">
-                <div className="dayBill__title" onClick={() => setExpand(!expand)}>
+                <div className="dayBill__title">
                     <span>{date}</span>
-                    <span className={classNames('arrow', !expand && 'expand')}></span>
+                    <span className={classNames('arrow', !expandVisible && 'expand')} onClick={() => setExpandVisible(!expandVisible)}></span>
                 </div>
-                <div className={classNames('dayBill__content', !expand && 'packup')}>
+                <div className="dayBill__content">
                     <div className="dayBill__content__item">
                         <span className="pay">支出</span><span>{dayResult.pay.toFixed(2)}</span>
                     </div>
@@ -34,7 +34,7 @@ export default function DayBill({ date, billList}) {
                     </div>
                 </div>
             </div>
-            <div className="bill_footer">
+            <div className="bill_footer" style={{ display: expandVisible ? 'block' : 'none' }}>
                 {
                     billList.map(item => {
                         return (

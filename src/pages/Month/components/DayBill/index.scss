@@ -30,7 +30,6 @@
         .dayBill__content{
             display: flex;
             justify-content: space-between;
-            max-height: 22px;
             overflow: hidden;
             transition: all .3s ease;
             .dayBill__content__item{
@@ -52,10 +51,6 @@
                     color: #121826;
                 }
             }
-        }
-        .packup{
-            max-height: 0;
-            transform: max-height;
         }
     }
     
