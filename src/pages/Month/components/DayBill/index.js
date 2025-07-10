@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import{ useState,useMemo } from "react";
 import './index.scss'
+import { billTypeToName } from 'src/contants'
+import Icon from 'src/components/Icon'
 
 export default function DayBill({ date, billList}) {
     // 控制展开收起
@@ -40,7 +42,8 @@ export default function DayBill({ date, billList}) {
                         return (
                             <div className="bill" key={item.id}>
                                 <div className="bill_content">
-                                    <div className="detail">{item.useFor}</div>
+                                    <Icon type={item.useFor} />
+                                    <div className="detail">{billTypeToName[item.useFor]}</div>
                                     <div className={classNames('money', item.type )}>{item.money.toFixed(2)}</div>
                                 </div>
                             </div>
