@@ -1,0 +1,83 @@
+.dayBill{
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    .bill_header{
+        margin-bottom: 10px;
+        .dayBill__title{
+            padding: 10px 0;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .arrow{
+                display: inline-block;
+                width: 7px;
+                height: 7px;
+                margin-top: 3px;
+                margin-left: 9px;
+                border-top: 2px solid #121826;
+                border-left: 2px solid #121826;
+                transform: translateY(-2px) rotate(225deg);
+                transform-origin: center;
+                transition: all .3s;
+            }
+            .expand{
+                transform: translateY(-2px) rotate(45deg);
+            }
+        }
+        .dayBill__content{
+            display: flex;
+            justify-content: space-between;
+            max-height: 22px;
+            overflow: hidden;
+            transition: all .3s ease;
+            .dayBill__content__item{
+                &>span{
+                    color: #656565;
+                }
+                .pay{
+                    display: inline-block;
+                    padding-right: 5px;
+                    color: red;
+                }
+                .income{
+                    display: inline-block;
+                    padding-right: 5px;
+                    color: green;
+                }
+                .balance_money{
+                    font-size: 18px;
+                    color: #121826;
+                }
+            }
+        }
+        .packup{
+            max-height: 0;
+            transform: max-height;
+        }
+    }
+    
+    .pay{
+        display: inline-block;
+        padding-right: 5px;
+        color: red;
+    }
+    .income{
+        display: inline-block;
+        padding-right: 5px;
+        color: green;
+    }
+    .bill_footer{
+        border-top: 2px solid #f4b358;
+        padding-top: 20px;
+        .bill{
+            .bill_content{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0;
+            }
+        }
+    }
+}

@@ -5,7 +5,35 @@
             "type": "pay",
             "money": -100,
             "date": "2025-07-01 10:36:42",
-            "useFor": "drink"
+            "useFor": "酒水饮料"
+        },
+        {
+            "id": 2,
+            "type": "pay",
+            "money": -100,
+            "date": "2025-07-01 11:36:42",
+            "useFor": "食物"
+        },
+        {
+            "id": 3,
+            "type": "income",
+            "money": 300,
+            "date": "2025-07-02 11:36:42",
+            "useFor": "礼金收入"
+        },
+        {
+            "id": 4,
+            "type": "income",
+            "money": 500,
+            "date": "2025-07-03 11:36:42",
+            "useFor": "理财收入"
+        },
+        {
+            "id": 5,
+            "type": "pay",
+            "money": -100,
+            "date": "2025-07-04 11:36:42",
+            "useFor": "水果"
         }
     ]
 }

@@ -5,6 +5,7 @@ import classNames from "classnames";
 import dayjs from "dayjs";
 import { useSelector } from "react-redux"; 
 import _ from "lodash";
+import DayBill from "./components/DayBill";
 
 function Month(){
     // 按月做数据分组
@@ -36,7 +37,7 @@ function Month(){
             setCurrentMonthList(monthGroup[newDate] || []);
         }
     }, [monthGroup]);
-    
+
     // 定义一个函数，用于确认日期
     const onConfirm = (date) => {
         // 隐藏日期选择器
@@ -48,6 +49,16 @@ function Month(){
         // 设置当前日期为格式化后的日期
         setCurrentDate(formattedDate);
     }
+
+    // 当前月按照日来分组
+    const dayGroup = useMemo(() => {
+        const groupData = _.groupBy(currentMonthList, item => dayjs(item.date).format('YYYY-MM-DD'));
+        const keys = Object.keys(groupData);
+        return {
+            groupData,
+            keys
+        }
+    }, [currentMonthList]);
     return(
         <div className="monthlyBill">
             <NavBar className="nav" backArrow={false}>月度收支</NavBar>
@@ -61,15 +72,15 @@ function Month(){
                     {/* 统计区域 */}
                     <div className="twoLineOverview">
                         <div className="item">
-                            <span className="money">{monthResult.pay}</span>
+                            <span className="money">{monthResult.pay.toFixed(2)}</span>
                             <span className="type">支出</span>
                         </div>
                         <div className="item">
-                            <span className="money">{monthResult.income}</span>
+                            <span className="money">{monthResult.income.toFixed(2)}</span>
                             <span className="type">收入</span>
                         </div>
                         <div className="item">
-                            <span className="money">{monthResult.balance}</span>
+                            <span className="money">{monthResult.balance.toFixed(2)}</span>
                             <span className="type">结余</span>
                         </div>
                     </div>
@@ -85,6 +96,13 @@ function Month(){
                         onClose={() => setDateVisible(false)}
                     />
                 </div>
+                {/* 单日统计列表 */}
+                {
+                    dayGroup.keys.map((key) => {
+                        return <DayBill date={key} billList={dayGroup.groupData[key]} key={key} />
+                    })
+                }
+                
             </div>
         </div>
     )
