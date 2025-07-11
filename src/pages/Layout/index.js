@@ -1,4 +1,4 @@
-import { Outlet,useNavigate } from "react-router-dom";
+import { Outlet,useLocation,useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBillList } from "../../store/modules/billStore.js";
@@ -37,6 +37,7 @@ function Layout() {
   const switchRouter = (path) => {
     navigate(path);
   };
+  const location = useLocation()
   return (
     <div className="layout">
       <div className="container">
@@ -44,7 +45,7 @@ function Layout() {
       </div>
 
       <div className="footer">
-        <TabBar onChange={switchRouter}>
+        <TabBar activeKey={location.pathname} onChange={switchRouter}>
           {tabs.map((item) => (
             <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
           ))}

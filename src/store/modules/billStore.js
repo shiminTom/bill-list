@@ -23,7 +23,7 @@ const billStore = createSlice({
 
 // 解构actionCreater
 const { setBillList,addBill } = billStore.actions;
-// 编写异步
+// 编写异步编写
 const getBillList = () => {
     return async (dispatch) => {
         // 异步请求
